@@ -181,9 +181,9 @@ let email =
   Key.(create "email" Arg.(opt (some string) None doc))
 
 let packages = [
-  package "git-paf" ~pin:"git+https://github.com/mirage/ocaml-git.git#update-paf-and-delete-cohttp";
-  package "git" ~pin:"git+https://github.com/mirage/ocaml-git.git#update-paf-and-delete-cohttp";
-  package "git-mirage" ~pin:"git+https://github.com/mirage/ocaml-git.git#update-paf-and-delete-cohttp";
+  package "git-paf";
+  package "git";
+  package "git-mirage";
   package ~min:"2.6.0" "irmin";
   package ~min:"2.6.0" "irmin-mirage";
   package ~min:"2.6.0" "irmin-mirage-git";
@@ -194,8 +194,8 @@ let packages = [
   package "awa-mirage";
   package ~min:"3.4.0" "git-mirage";
   package ~min:"0.3.0" "letsencrypt";
-  package "paf" ~sublibs:[ "mirage" ];
-  package "paf" ~sublibs:[ "le" ] ~pin:"git+https://github.com/dinosaure/paf-le-chien.git"
+  package ~min:"0.0.5" "paf" ~sublibs:[ "mirage" ];
+  package ~min:"0.0.5" "paf-le"
 ]
 
 let stack = generic_stackv4v6 default_network
